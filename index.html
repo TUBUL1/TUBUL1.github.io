@@ -2,150 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Links</title>
+  <title>Itay Tuval | Futures Trading</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    /* ===== Space Background ===== */
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Arial, sans-serif;
-      color: white;
-      overflow: hidden;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-    }
-
-    .stars, .stars2, .stars3 {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      background: transparent;
-      box-shadow: 
-        2000px 2000px white, 1500px 800px white, 1200px 300px white,
-        800px 1200px white, 600px 400px white, 300px 900px white;
-      animation: animStar 50s linear infinite;
-    }
-
-    .stars2 {
-      box-shadow:
-        1800px 1600px white, 1400px 200px white, 900px 600px white;
-      animation: animStar 100s linear infinite;
-    }
-
-    .stars3 {
-      box-shadow:
-        1700px 1200px white, 1100px 900px white, 500px 500px white;
-      animation: animStar 150s linear infinite;
-    }
-
-    @keyframes animStar {
-      from { transform: translateY(0); }
-      to { transform: translateY(-2000px); }
-    }
-
-    /* ===== Content ===== */
-    .container {
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
+      background: radial-gradient(circle at top, #0b1220, #020617);
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      color: #e5e7eb;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      padding: 28px;
     }
 
     .card {
-      width: 100%;
-      max-width: 360px;
-      padding: 30px 20px;
-      text-align: center;
+      background: rgba(2, 6, 23, 0.85);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 24px;
       backdrop-filter: blur(10px);
-      background: rgba(0,0,0,0.5);
-      border-radius: 20px;
-    }
-
-    .avatar {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      margin: 0 auto 20px;
-      background: #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 46px;
     }
 
     h1 {
       margin: 0;
-      font-size: 26px;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
-    p {
-      margin: 8px 0 30px;
-      font-size: 14px;
-      color: #aaa;
+    .subtitle {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #9ca3af;
     }
 
-    .link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin: 14px 0;
-      padding: 16px;
-      border-radius: 14px;
+    .chart-box {
+      margin: 22px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .links a {
+      display: block;
+      margin-top: 14px;
+      padding: 14px;
+      text-align: center;
       text-decoration: none;
-      font-size: 18px;
-      color: white;
-      transition: 0.25s;
+      color: #e5e7eb;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      font-size: 14px;
+      transition: 0.2s;
     }
 
-    .link:hover {
-      transform: scale(1.05);
-      filter: brightness(1.1);
+    .links a:hover {
+      background: rgba(255,255,255,0.04);
     }
-
-    .instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af); }
-    .discord   { background: #5865F2; }
-    .telegram  { background: #229ED9; }
-    .github    { background: #24292e; }
-    .whatsapp  { background: #25D366; }
 
     footer {
-      margin-top: 25px;
+      margin-top: 20px;
+      text-align: center;
       font-size: 12px;
-      color: #666;
+      color: #6b7280;
     }
   </style>
 </head>
 
 <body>
-
-  <!-- Space Layers -->
-  <div class="stars"></div>
-  <div class="stars2"></div>
-  <div class="stars3"></div>
-
-  <!-- Content -->
   <div class="container">
     <div class="card">
 
-      <div class="avatar">🔥</div>
+      <h1>Itay Tuval</h1>
+      <div class="subtitle">NASDAQ Futures · Quant / Trading</div>
 
-      <h1>TUBUL</h1>
-      <p>My social links</p>
+      <!-- TradingView Widget BEGIN -->
+      <div class="chart-box">
+        <div class="tradingview-widget-container">
+          <div id="tradingview_nq"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+          <script type="text/javascript">
+            new TradingView.widget({
+              "autosize": true,
+              "symbol": "CME_MINI:NQ1!",
+              "interval": "5",
+              "timezone": "Etc/UTC",
+              "theme": "dark",
+              "style": "1",
+              "locale": "en",
+              "toolbar_bg": "#020617",
+              "enable_publishing": false,
+              "hide_top_toolbar": true,
+              "hide_side_toolbar": true,
+              "allow_symbol_change": false,
+              "container_id": "tradingview_nq"
+            });
+          </script>
+        </div>
+      </div>
+      <!-- TradingView Widget END -->
 
-      <a class="link instagram" href="https://instagram.com/USERNAME" target="_blank">📸 Instagram</a>
-      <a class="link discord" href="https://discord.gg/INVITE" target="_blank">💬 Discord</a>
-      <a class="link telegram" href="https://t.me/USERNAME" target="_blank">✈️ Telegram</a>
-      <a class="link github" href="https://github.com/TUBUL1" target="_blank">💻 GitHub</a>
-      <a class="link whatsapp" href="https://wa.me/972XXXXXXXXX" target="_blank">📱 WhatsApp</a>
+      <div class="links">
+        <a href="https://twitter.com/USERNAME" target="_blank">X / Twitter</a>
+        <a href="https://t.me/USERNAME" target="_blank">Telegram</a>
+        <a href="https://discord.gg/INVITE" target="_blank">Discord</a>
+        <a href="https://github.com/TUBUL1" target="_blank">GitHub</a>
+      </div>
 
-      <footer>© 2025</footer>
+      <footer>© 2025 Itay Tuval. All rights reserved.</footer>
 
     </div>
   </div>
-
 </body>
 </html>
