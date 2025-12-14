@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Itay Tuval | Futures Trading</title>
+  <title>Itay Tuval | NASDAQ Futures</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -10,24 +10,27 @@
       margin: 0;
       min-height: 100vh;
       background: radial-gradient(circle at top, #0b1220, #020617);
-      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      font-family: Inter, Segoe UI, Arial, sans-serif;
       color: #e5e7eb;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .container {
+    .layout {
       width: 100%;
-      max-width: 480px;
-      padding: 28px;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 28px;
+      padding: 24px;
     }
 
-    .card {
-      background: rgba(2, 6, 23, 0.85);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 16px;
-      padding: 24px;
+    .panel {
+      background: rgba(2, 6, 23, 0.88);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 22px;
       backdrop-filter: blur(10px);
     }
 
@@ -35,7 +38,6 @@
       margin: 0;
       font-size: 22px;
       font-weight: 600;
-      letter-spacing: 0.5px;
     }
 
     .subtitle {
@@ -44,11 +46,25 @@
       color: #9ca3af;
     }
 
-    .chart-box {
-      margin: 22px 0;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.06);
+    .stats {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .stat {
+      padding: 12px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stat span {
+      display: block;
+      color: #9ca3af;
+      font-size: 11px;
     }
 
     .links a {
@@ -65,61 +81,102 @@
     }
 
     .links a:hover {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .chart-panel {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .chart-header {
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #9ca3af;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     footer {
-      margin-top: 20px;
-      text-align: center;
-      font-size: 12px;
+      margin-top: 18px;
+      font-size: 11px;
       color: #6b7280;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="card">
 
-      <h1>Itay Tuval</h1>
-      <div class="subtitle">NASDAQ Futures · Quant / Trading</div>
+<div class="layout">
 
-      <!-- TradingView Widget BEGIN -->
-      <div class="chart-box">
-        <div class="tradingview-widget-container">
-          <div id="tradingview_nq"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-          <script type="text/javascript">
-            new TradingView.widget({
-              "autosize": true,
-              "symbol": "CME_MINI:NQ1!",
-              "interval": "5",
-              "timezone": "Etc/UTC",
-              "theme": "dark",
-              "style": "1",
-              "locale": "en",
-              "toolbar_bg": "#020617",
-              "enable_publishing": false,
-              "hide_top_toolbar": true,
-              "hide_side_toolbar": true,
-              "allow_symbol_change": false,
-              "container_id": "tradingview_nq"
-            });
-          </script>
-        </div>
+  <!-- LEFT PANEL -->
+  <div class="panel">
+    <h1>Itay Tuval</h1>
+    <div class="subtitle">NASDAQ Futures · Quant / Trading</div>
+
+    <div class="stats">
+      <div class="stat">
+        <span>Instrument</span>
+        NQ1! (CME)
       </div>
-      <!-- TradingView Widget END -->
-
-      <div class="links">
-        <a href="https://twitter.com/USERNAME" target="_blank">X / Twitter</a>
-        <a href="https://t.me/USERNAME" target="_blank">Telegram</a>
-        <a href="https://discord.gg/INVITE" target="_blank">Discord</a>
-        <a href="https://github.com/TUBUL1" target="_blank">GitHub</a>
+      <div class="stat">
+        <span>Market</span>
+        US Futures
       </div>
+      <div class="stat">
+        <span>Session</span>
+        London / NY
+      </div>
+      <div class="stat">
+        <span>Focus</span>
+        Liquidity · Structure
+      </div>
+    </div>
 
-      <footer>© 2025 Itay Tuval. All rights reserved.</footer>
+    <div class="links">
+      <a href="https://twitter.com/USERNAME" target="_blank">X / Twitter</a>
+      <a href="https://t.me/USERNAME" target="_blank">Telegram</a>
+      <a href="https://discord.gg/INVITE" target="_blank">Discord</a>
+      <a href="https://github.com/TUBUL1" target="_blank">GitHub</a>
+    </div>
 
+    <footer>
+      © 2025 Itay Tuval. All rights reserved.<br>
+      Trading content for educational purposes only.
+    </footer>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="panel chart-panel">
+    <div class="chart-header">NASDAQ Futures · NQ1! · Live</div>
+
+    <div class="tradingview-widget-container" style="height:520px">
+      <div id="tradingview_nq"></div>
+      <script src="https://s3.tradingview.com/tv.js"></script>
+      <script>
+        new TradingView.widget({
+          "autosize": true,
+          "symbol": "CME_MINI:NQ1!",
+          "interval": "5",
+          "timezone": "Etc/UTC",
+          "theme": "dark",
+          "style": "1",
+          "hide_top_toolbar": true,
+          "hide_side_toolbar": true,
+          "allow_symbol_change": false,
+          "container_id": "tradingview_nq"
+        });
+      </script>
     </div>
   </div>
+
+</div>
+
 </body>
 </html>
